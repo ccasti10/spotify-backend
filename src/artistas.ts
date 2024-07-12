@@ -9,10 +9,3 @@ export class Artista {
     public oyentesMensuales: number,
   ) {}
 }
-
-export class Cancion {
-    constructor(
-        public 
-
-    )
-}
