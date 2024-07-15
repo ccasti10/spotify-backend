@@ -12,8 +12,14 @@ export class AppController {
     this.artistas.push(
       new Artista(1, 'juan', 'bio', 'banda', 'chilena', ['rock'], 1),
     );
+    this.artistas.push(
+      new Artista(2, 'prueba2', 'bio2', 'banda', 'chilena', ['rap'], 100),
+    );
     this.canciones.push(
       new Cancion(1, 'bigote', ['mapache'], 10, ['rap'], 200, this.artistas[0]),
+    );
+    this.canciones.push(
+      new Cancion(2, 'cancion', ['beat'], 1000, ['rap'], 200, this.artistas[1]),
     );
   }
 
@@ -29,6 +35,16 @@ export class AppController {
   nuevoArtista(@Body() artista: Artista): Artista {
     console.log(artista);
     this.artistas.push(artista);
+    return null;
+  }
+  @Get('canciones')
+  obtenerCanciones(): Cancion[] {
+    return this.canciones;
+  }
+  @Post('canciones')
+  nuevaCancion(@Body() cancion: Cancion): Cancion {
+    console.log(cancion);
+    this.canciones.push(cancion);
     return null;
   }
 }
